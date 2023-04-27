@@ -2,3 +2,18 @@
     display: inline-block;
     margin-right: 10px;
 }
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.dot.filled {
+    background-color: black;
+}
