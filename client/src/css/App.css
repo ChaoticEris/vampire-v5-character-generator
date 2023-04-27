@@ -17,3 +17,12 @@
 .dot.filled {
     background-color: black;
 }
+
+#attributes {
+    display: flex;
+    align-items: center;
+}
+
+.attributes-label {
+    margin-right: 10px;
+}

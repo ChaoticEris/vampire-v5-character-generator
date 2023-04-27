@@ -29,7 +29,9 @@ function CharacterCreator() {
       </select>
       <br /> <br />
       <div id={"attributes"}>
-        <label htmlFor="strength">Strength: </label>
+        <label htmlFor="strength" className={"attributes-label"}>
+          Strength:{" "}
+        </label>
         <FillableDotsAttributes />
       </div>
     </div>
