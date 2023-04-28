@@ -4,7 +4,7 @@ import axios from "axios";
 function FillableDotsAttributes({label}) {
     const [selectedDot, setSelectedDot] = useState(1);
 
-    function sendDataToBackend(value, label) {
+    function sendAttributesToBackend(value, label) {
         axios
             .post("http://localhost:8080/api/attribute-dots", {value}, {params: {label}})
             .then((response) => {
@@ -17,7 +17,7 @@ function FillableDotsAttributes({label}) {
 
     const handleDotClick = (dotNumber) => {
         setSelectedDot(dotNumber);
-        sendDataToBackend(dotNumber, label);
+        sendAttributesToBackend(dotNumber, label);
     };
 
     const renderDots = () => {
