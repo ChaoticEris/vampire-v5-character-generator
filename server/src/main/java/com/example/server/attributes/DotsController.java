@@ -10,7 +10,6 @@ public class DotsController {
     @PostMapping("/api/attribute-dots")
     public ResponseEntity<Void> saveDotsValue(@RequestBody int value, @RequestParam String label) {
         System.out.println("Received value: " + value + ", label: " + label);
-        // Save the value and label to a database or perform some business logic
         return ResponseEntity.ok().build();
     }
 }
