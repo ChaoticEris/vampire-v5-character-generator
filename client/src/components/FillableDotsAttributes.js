@@ -1,50 +1,50 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import axios from "axios";
 
-function FillableDotsAttributes({ label }) {
-  const [selectedDot, setSelectedDot] = useState(1);
+function FillableDotsAttributes({label}) {
+    const [selectedDot, setSelectedDot] = useState(1);
 
-  function sendDataToBackend(value, label) {
-    axios
-      .post("http://localhost:8080/api/attribute-dots", { value, label })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-  const handleDotClick = (dotNumber) => {
-    setSelectedDot(dotNumber);
-    sendDataToBackend(dotNumber, label);
-  };
-
-  const renderDots = () => {
-    const dots = [];
-    for (let i = 1; i <= 5; i++) {
-      const dotClass = i <= selectedDot ? "filled" : "";
-
-      dots.push(
-        <span
-          key={i}
-          className={`dot ${dotClass}`}
-          onClick={() => handleDotClick(i)}
-        ></span>
-      );
+    function sendDataToBackend(value, label) {
+        axios
+            .post("http://localhost:8080/api/attribute-dots", {value}, {params: {label}})
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
-    return dots;
-  };
+    const handleDotClick = (dotNumber) => {
+        setSelectedDot(dotNumber);
+        sendDataToBackend(dotNumber, label);
+    };
 
-  return (
-    <div className={"dots-container"}>
-      <label htmlFor={label} className={"attributes-label"}>
-        {label}
-      </label>
-      {renderDots()}
-    </div>
-  );
+    const renderDots = () => {
+        const dots = [];
+        for (let i = 1; i <= 5; i++) {
+            const dotClass = i <= selectedDot ? "filled" : "";
+
+            dots.push(
+                <span
+                    key={i}
+                    className={`dot ${dotClass}`}
+                    onClick={() => handleDotClick(i)}
+                ></span>
+            );
+        }
+
+        return dots;
+    };
+
+    return (
+        <div className={"dots-container"}>
+            <label htmlFor={label} className={"attributes-label"}>
+                {label}
+            </label>
+            {renderDots()}
+        </div>
+    );
 }
 
 export default FillableDotsAttributes;
