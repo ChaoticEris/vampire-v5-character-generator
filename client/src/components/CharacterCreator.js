@@ -28,11 +28,25 @@ function CharacterCreator() {
         <option value="Ventrue">Ventrue</option>
       </select>
       <br /> <br />
-      <div id={"attributes"}>
-        <label htmlFor="strength" className={"attributes-label"}>
-          Strength:{" "}
-        </label>
-        <FillableDotsAttributes />
+      <div className={"grid-container-attributes"}>
+        <div className={"column"}>
+          <h2>Physical</h2>
+          <FillableDotsAttributes label={"Strength:"} />
+          <FillableDotsAttributes label={"Dexterity:"} />
+          <FillableDotsAttributes label={"Stamina:"} />
+        </div>
+        <div className={"column"}>
+          <h2>Social</h2>
+          <FillableDotsAttributes label={"Charisma:"} />
+          <FillableDotsAttributes label={"Manipulation:"} />
+          <FillableDotsAttributes label={"Composure:"} />
+        </div>
+        <div className={"column"}>
+          <h2>Mental</h2>
+          <FillableDotsAttributes label={"Intelligence:"} />
+          <FillableDotsAttributes label={"Wits:"} />
+          <FillableDotsAttributes label={"Resolve:"} />
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function FillableDotsAttributes() {
+function FillableDotsAttributes({ label }) {
   const [selectedDot, setSelectedDot] = useState(1);
 
   const handleDotClick = (dotNumber) => {
@@ -24,7 +24,14 @@ function FillableDotsAttributes() {
     return dots;
   };
 
-  return <div className={"dots-container"}>{renderDots()}</div>;
+  return (
+    <div className={"dots-container"}>
+      <label htmlFor={label} className={"attributes-label"}>
+        {label}
+      </label>
+      {renderDots()}
+    </div>
+  );
 }
 
 export default FillableDotsAttributes;
